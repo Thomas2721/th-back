@@ -7,7 +7,7 @@ const userRoute = require('./routes/userRoute');
 const cors = require("cors");
 const PORT = 5001;
 const app = express();
-
+connectDatabase();
 
 app.use(express.json());
 app.use(cors());
@@ -20,7 +20,7 @@ app.get("/", (request, response) => {
 });
 app.use("/books", booksRoute);
 app.use('/user',userRoute);
-connectDatabase();
+
 app.listen(PORT, () => {
   console.log(`App is listening to port ${PORT}`);
 });
